@@ -1,0 +1,177 @@
+@import url("reset.css");
+
+* { box-sizing: border-box; }
+body {
+  padding: 1rem;
+  background: #333;
+}
+
+section {
+  background: white;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+
+h2 {
+  margin: 0 0 0.5rem 0;
+  padding: 0 0 0.25rem 0;
+  border-bottom: 2px solid #333;
+}
+
+.module {
+  margin: 0 0 1rem 0;
+}
+
+
+
+
+.module-movie {
+  float: left;
+  width: 32%;
+  margin-right: 2%;
+  height: 391px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* need to combine module-move: hover with module-move-hovered */
+
+.module-movie:hover .description{
+opacity: 1;
+/* 90% opaque white */
+background: rgba(256,256,256,0.9); 
+
+
+
+}
+
+
+
+
+
+
+.module-movie-hovered {
+  float: left;
+  width: 50%;
+  margin-right: 2%;
+  height: 391px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+.module-movie:nth-of-type(3n) {
+  margin-right: 0;
+}
+.module-movie::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 20%, black);
+}
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  color: white;
+  z-index: 2;
+}
+.movie-title {
+  margin: 0 0 0.5rem 0;
+}
+.movie-title::before {
+  content: "Title";
+  display: block;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: #999;
+}
+.movie-director::before {
+  content: "Director";
+  display: block;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: #999;
+}
+.movie-director {
+  margin: 0;
+}
+
+.movie-imdb::before {
+  content: "IMDB Rating";
+  display: block;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: #999;
+}
+.movie-imdb {
+  margin: 0;
+}
+
+.movie-rotten-tomatoes::before {
+  content: "Rotten Tomatoes Rating";
+display: block;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  color: #999;
+}
+.movie-rotten-tomatoes {
+  margin: 0;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.unhidden{
+  visibility: visible;
+}
+
+
+.description{
+  opacity: 0;
+  color: black;
+  overflow: scroll;
+
+
+
+}
+
+.description:hover{
+  opacity: 1;
+}
+
+.play-button{
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+
+.faded{
+  opacity: .5;
+}
+
+
+
+
+

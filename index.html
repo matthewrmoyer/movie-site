@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<title>Movie Site</title>
+<head>
+	<script src ="jquery.js"></script>
+	<script src="handlebars-v4.0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  <script src ="script.js"></script>
+
+</head>
+
+
+<body>
+<button id = "button-imdb-sort">Sort by IMDB Rating</button>
+<button id = "button-rotten-tomatoes-sort"> Sort by Rotten Tomatoes Rating</button>
+
+<!-- Handlebars syntax
+script type is always the same
+change the id as you please, match with var source script
+
+{{}} are placeholders
+content inside of {{}} will be replaced by data you pass the templage here
+
+-->
+<script id="media-template" type="text/x-handlebars-template">
+
+
+  <div class="module module-movie" style ="background-image: url({{movieImage}})" >
+    <div class="movie-info">
+    
+    <p class = "description">{{movieDescription}}
+    <svg class = "play-button" width="100" height="100">
+  <circle cx="50%" cy="50%" r= "40%" fill="purple"></circle>
+  <line x1="20%" y1="25%" x2="90%" y2="50%" style="stroke:rgb(0,255,25)" stroke-width="5%"></line>
+   <line x1="20%" y1="75%" x2="90%" y2="50%" style="stroke:rgb(0,255,25)" stroke-width="5%"></line>
+  <line x1="20%" y1="25%" x2="20%" y2="75%" style="stroke:rgb(0,255,25)" stroke-width="5%"></line>
+</svg>
+</p>
+
+      <h3 class="movie-title"> {{movieTitle}} </h3>
+      <p class="movie-director">
+        {{movieDirector}}
+      </p>
+      <p class="movie-imdb">{{movieIMDB}}</p>
+      <p class="movie-rotten-tomatoes">{{movieRottenTomatoes}}</p>
+    </div>
+  </div>
+</script>
+
+<section id="movies"></section>
+
+
+
+
+
+</body>
+</html>
