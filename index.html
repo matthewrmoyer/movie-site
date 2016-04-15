@@ -25,10 +25,10 @@ content inside of {{}} will be replaced by data you pass the templage here
 <script id="media-template" type="text/x-handlebars-template">
 
 
-  <div class="module module-movie" style ="background-image: url({{movieImage}})" >
+  <div class="module module-movie" style ="background-image: url({{poster}})" >
     <div class="movie-info">
     
-    <p class = "description">{{movieDescription}}
+    <p class = "description">{{summary}}
     <svg class = "play-button" width="100" height="100">
   <circle cx="50%" cy="50%" r= "40%" fill="purple"></circle>
   <line x1="20%" y1="25%" x2="90%" y2="50%" style="stroke:rgb(0,255,25)" stroke-width="5%"></line>
@@ -37,12 +37,13 @@ content inside of {{}} will be replaced by data you pass the templage here
 </svg>
 </p>
 
-      <h3 class="movie-title"> {{movieTitle}} </h3>
+      <h3 class="movie-title"> {{show_title}} </h3>
       <p class="movie-director">
-        {{movieDirector}}
+        {{director}}
       </p>
-      <p class="movie-imdb">{{movieIMDB}}</p>
-      <p class="movie-rotten-tomatoes">{{movieRottenTomatoes}}</p>
+      <p class="movie-imdb-rating">{{movieIMDB}}</p>
+      <p class="movie-rotten-tomatoes-rating">{{movieRottenTomatoes}}%</p>
+      <p class="movie-netflix-rating">{{rating}}</p>
     </div>
   </div>
 </script>
