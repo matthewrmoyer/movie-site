@@ -34,24 +34,25 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  box-shadow: 0 0 20px 0px black;
+
 }
 
-/* need to combine module-move: hover with module-move-hovered */
 
 .module-movie:hover .description{
 opacity: 1;
 /* 90% opaque white */
 background: rgba(256,256,256,0.9); 
+  box-shadow: 0 0 10px 0px black;
 
 
 
 }
 
+.module-movie:hover{
+}
 
-
-
-
-
+/*
 .module-movie-hovered {
   float: left;
   width: 50%;
@@ -61,7 +62,7 @@ background: rgba(256,256,256,0.9);
   background-size: cover;
   position: relative;
 }
-
+*/
 
 
 .module-movie:nth-of-type(3n) {
@@ -164,6 +165,7 @@ display: block;
 .description{
   opacity: 0;
   color: black;
+  text-align: center;
 
 
 
@@ -174,8 +176,7 @@ display: block;
 }
 
 .play-button{
-  display: block;
-  margin: auto;
+  display: inline-block;
   cursor: pointer;
 }
 
@@ -186,5 +187,59 @@ display: block;
 
 
 
+.sort-tab{
+  width: 100%;
+  text-align: center;
+}
+
+
+.sort-rating{
+  display: block;
+}
+.sort-rating li{
+  display: inline-block;
+  color: #a814ba;
+  width: 20vw;
+  height: 2em;
+  border-right: 5px;
+  border-style: solid;
+  border-color: gray;
+  margin: 5px 5px 2px 5px ;
+  font-size: 2vmax;
+  float: left;
+  /* make sure to clear the float*/
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+
+
+}
+
+.sort-genre{
+  display: block;
+  clear: both;
+}
+.sort-genre li{
+  display: inline-block;
+  color: #a814ba;
+  width: 10vw;
+  height: 2em;
+  border-right: 5px;
+  border-style: solid;
+  border-color: gray;
+  margin: 10px 5px 2px 5px ;
+  font-size: 2vmax;
+  float: left;
+  /* make sure to clear the float*/
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+
+
+}
+
+#clear-div{
+  clear: both;
+}
 
 
