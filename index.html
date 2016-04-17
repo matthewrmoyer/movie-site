@@ -2,16 +2,22 @@
 <html>
 <title>Movie Site</title>
 <head>
+
+<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lobster2' rel='stylesheet' type='text/css'>
+
+
 	<script src ="jquery.js"></script>
 	<script src="handlebars-v4.0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   <script src ="script.js"></script>
 
+
 </head>
 
 
 <body>
-
+<div class= "sort-wrapper">
   <ul class = "sort-tab">
   <ul class= "sort-rating">
     <li id = "tab-imdb-sort">Sort by IMDB Rating</li>
@@ -28,10 +34,27 @@
     <li>Crime</li>
     <li>Horror</li>
     <li>Sci-Fi</li>
+    <li id= "search-li"><div id="search-wrapper">
+        <form class="search-form">          
+        <input id ="search-bar"type="text" placeholder="Search...">
+        <div id ="search-button">
+          <svg class = "search" width="3vw" height="3vw">
+  <circle cx="40%" cy="40%" r= "30%"
+      stroke = "black" stroke-width="6%" fill="none"></circle>
+  
+   <line x1="66%" y1="50%" x2="100%" y2="80%" stroke="black" stroke-width="7%"></line>
+
+</svg>
+
+        </div>
+       </form>
+      </li>
     </ul>
 </ul>
 
-  </ul>
+
+</div>
+</div>
 <div id="clear-div"></div>
 
 <!-- Handlebars syntax
