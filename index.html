@@ -27,13 +27,13 @@
     </ul>
 
     <ul class = "sort-genre">
-    <li>Drama</li>
-    <li>Comedy</li>
-    <li>Action</li>
-    <li>Adventure</li>
-    <li>Crime</li>
-    <li>Horror</li>
-    <li>Sci-Fi</li>
+    <li id="tab-drama">Drama</li>
+    <li id="tab-comedy">Comedy</li>
+    <li id="tab-action">Action</li>
+    <li id="tab-adventure">Adventure</li>
+    <li id="tab-crime">Crime</li>
+    <li id="tab-horror">Horror</li>
+    <li id="tab-sci-fi">Sci-Fi</li>
     <li id= "search-li"><div id="search-wrapper">
         <form class="search-form">          
         <input id ="search-bar"type="text" placeholder="Search...">
@@ -69,7 +69,6 @@ content inside of {{}} will be replaced by data you pass the templage here
 
 
   <div class="module module-movie" style ="background-image: url({{poster}})" >
-    <div class="movie-info">
     
     <p class = "description">{{summary}}
     <br>
@@ -81,6 +80,7 @@ content inside of {{}} will be replaced by data you pass the templage here
   <line x1="20%" y1="25%" x2="20%" y2="75%" style="stroke:purple" stroke-width="5%"></line>
 </svg></a>
 </p>
+    <div class="movie-info">
 
       <h3 class="movie-title"> {{show_title}} </h3>
       <p class="movie-director">
@@ -89,6 +89,7 @@ content inside of {{}} will be replaced by data you pass the templage here
       <p class="movie-imdb-rating">{{movieIMDB}}</p>
       <p class="movie-rotten-tomatoes-rating">{{movieRottenTomatoes}}%</p>
       <p class="movie-netflix-rating">{{rating}}</p>
+      <p class="category, no-display">{{category}}</p>
     </div>
   </div>
 </script>

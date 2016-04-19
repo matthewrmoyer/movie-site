@@ -53,6 +53,81 @@ function netflixRatingSort() {
   }
 }
 
+function showDrama(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Dramas'))").remove();
+}
+
+function showComedy(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Comedies'))").remove();
+}
+function showAction(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Action'))").remove();
+}
+function showAdventure(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Adventure'))").remove();
+}
+function showCrime(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Crime'))").remove();
+}
+function showHorror(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Horror'))").remove();
+}
+function showSciFi(){
+  for (i = 0; i < data.movies.length; i++) {
+
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+$(".module-movie:not(:contains('Sci-Fi'))").remove();
+}
+
+
+$("#tab-drama").on("click", showDrama);
+$("#tab-comedy").on("click", showComedy);
+$("#tab-action").on("click", showAction);
+$("#tab-adventure").on("click", showAdventure);
+$("#tab-crime").on("click", showCrime);
+$("#tab-horror").on("click", showHorror);
+$("#tab-sci-fi").on("click", showSciFi);
+
+
 
 //grabbing guts of #media-template (getter)
 var source = $("#media-template").html();
