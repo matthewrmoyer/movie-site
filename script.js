@@ -42,7 +42,16 @@ function rottenTomatoesSort(){
 };
 
 
-
+function netflixRatingSort() {
+  $("#movies").empty();
+  data.movies.sort(function(a,b){
+    return b.rating-a.rating
+  });
+  for(i=0; i<data.movies.length; i++){
+    var html = template(data.movies[i]);
+    $("#movies").append(html);
+  }
+}
 
 
 //grabbing guts of #media-template (getter)
@@ -66,6 +75,8 @@ for (i = 0; i < data.movies.length; i++) {
 });
 
 */
+
+$("#tab-netflix-rating-sort").on("click", netflixRatingSort);
 
 $("#tab-imdb-sort").on("click",imdbSort);
 
@@ -99,6 +110,39 @@ $('body').on('mouseleave', ".module-movie", function() {
    
 
 });
+
+$("#search-button").on("click", function() {
+var searchInput = $("#search-bar").val();
+
+console.log(searchInput);
+
+
+
+/*  
+could use this instead. it makes a new methond called containsNC
+ $.extend($.expr[":"], {
+  "containsNC": function(elem, i, match, array) {
+    return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+  }
+});
+*/
+
+
+
+//makes contains method case insensitive, changes core funtionality of the method
+$.expr[":"].contains = $.expr.createPseudo(function(arg) {
+    return function( elem ) {
+        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+    };
+});
+$(".module-movie:not(:contains('"+searchInput+"'))").remove();
+
+
+
+});
+
+
+
 
 
 

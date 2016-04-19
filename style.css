@@ -282,15 +282,19 @@ display: block;
 
   border-style: solid;
 
+
 }
 
 #search-wrapper
 {
   height: 100%;
+  
+
 }
 
 #search-form{
 height: 100%;
+
 }
 
 #search-bar{
@@ -315,6 +319,7 @@ height: 100%;
  float: right;
  height: 100px;
  background-color: gray;
+
 }
 
 
