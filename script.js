@@ -64,6 +64,8 @@ $(".module-movie:not(:contains('Dramas'))").remove();
 }
 
 function showComedy(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -73,6 +75,8 @@ function showComedy(){
 $(".module-movie:not(:contains('Comedies'))").remove();
 }
 function showAction(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -82,6 +86,8 @@ function showAction(){
 $(".module-movie:not(:contains('Action'))").remove();
 }
 function showAdventure(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -91,6 +97,8 @@ function showAdventure(){
 $(".module-movie:not(:contains('Adventure'))").remove();
 }
 function showCrime(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -100,6 +108,8 @@ function showCrime(){
 $(".module-movie:not(:contains('Crime'))").remove();
 }
 function showHorror(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -109,6 +119,8 @@ function showHorror(){
 $(".module-movie:not(:contains('Horror'))").remove();
 }
 function showSciFi(){
+    $("#movies").empty();
+
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -188,11 +200,17 @@ $('body').on('mouseleave', ".module-movie", function() {
 
 $("#search-button").on("click", function() {
 var searchInput = $("#search-bar").val();
-
 console.log(searchInput);
-
-
-
+    $("#movies").empty(),
+    data.movies.sort(function(a, b){
+    return b.movieIMDB-a.movieIMDB
+  });
+  
+  for (i = 0; i < data.movies.length; i++) {
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
 /*  
 could use this instead. it makes a new methond called containsNC
  $.extend($.expr[":"], {
@@ -202,8 +220,6 @@ could use this instead. it makes a new methond called containsNC
 });
 */
 
-
-
 //makes contains method case insensitive, changes core funtionality of the method
 $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     return function( elem ) {
@@ -211,14 +227,27 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     };
 });
 $(".module-movie:not(:contains('"+searchInput+"'))").remove();
-
-
-
 });
 
 
 
+$("#search-bar").bind("keypress",function(e) {
 
+  if(event.keyCode == 13){
+    event.preventDefault();
+    $("#movies").empty(),
+    data.movies.sort(function(a, b){
+    return b.movieIMDB-a.movieIMDB
+  });
+  
+  for (i = 0; i < data.movies.length; i++) {
+  //calling template function and passing it the data
+  var html = template(data.movies[i]);
+  $("#movies").append(html);
+};
+    $("#search-button").click();
+  }
+}); 
 
 
 });

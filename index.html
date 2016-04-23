@@ -5,6 +5,7 @@
 
 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lobster2' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
 
 
 	<script src ="jquery.js"></script>
@@ -70,7 +71,16 @@ content inside of {{}} will be replaced by data you pass the templage here
 
   <div class="module module-movie" style ="background-image: url({{poster}})" >
     
-    <p class = "description">{{summary}}
+    <div class = "description">
+
+<div class="description-movie-title">{{show_title}}</div>
+
+  
+<div class ="description-release-date">Year of Release: {{release_year}}</div>
+
+
+<div class = "description-summary">{{summary}}</div>
+
     <br>
     <a href="{{netflix-url}}{{show_title}}">
     <svg class = "play-button" width="100" height="100">
@@ -79,7 +89,7 @@ content inside of {{}} will be replaced by data you pass the templage here
    <line x1="20%" y1="75%" x2="90%" y2="50%" style="stroke:purple" stroke-width="5%"></line>
   <line x1="20%" y1="25%" x2="20%" y2="75%" style="stroke:purple" stroke-width="5%"></line>
 </svg></a>
-</p>
+</div>
     <div class="movie-info">
 
       <h3 class="movie-title"> {{show_title}} </h3>
