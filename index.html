@@ -18,13 +18,13 @@
 
 
 <body>
-<div class= "sort-wrapper">
+<div class= "sort-wrapper disable-user-select">
   <ul class = "sort-tab">
   <ul class= "sort-rating">
     <li id = "tab-imdb-sort">Sort by IMDB Rating</li>
     <li id = "tab-rotten-tomatoes-sort">Sort by Rotten Tomatoes Rating</li>
     <li id ="tab-netflix-rating-sort">Sort by Netflix Rating</li>
-    <li>Sort by Popular</li>
+    <li id ="tab-sort-by-popular">Sort by Popular</li>
     </ul>
 
     <ul class = "sort-genre">
@@ -97,7 +97,7 @@ content inside of {{}} will be replaced by data you pass the templage here
         {{director}}
       </p>
       <p class="movie-imdb-rating">{{movieIMDB}}</p>
-      <p class="movie-rotten-tomatoes-rating">{{movieRottenTomatoes}}%</p>
+      <p class="movie-rotten-tomatoes-rating">{{movieRottenTomatoes}}</p>
       <p class="movie-netflix-rating">{{rating}}</p>
       <p class="category, no-display">{{category}}</p>
     </div>

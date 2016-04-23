@@ -376,3 +376,19 @@ display: none;}
 
 }
 
+.disable-user-select{
+    -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer */
+   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+
+.movie-rotten-tomatoes-rating:after {
+  content: "%";
+  display: inline;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+}
+

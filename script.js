@@ -4,8 +4,9 @@ $(document).ready(function(){
 
 
 var data = {
+
   movies: [
-  {"show_title":"Kill Bill: Vol. 2","unit":84,"show_id":60032563, "netflix-url":"https://www.netflix.com/search/", "release_year":"2004","movieIMDB":"8.0", "movieRottenTomatoes":"84", "rating":"3.8","category":"Action & Adventure","show_cast":"Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah, Gordon Liu, Michael Parks, Perla Haney-Jardine, Helen Kim, Claire Smithies, Clark Middleton","director":"Quentin Tarantino","summary":"The Bride has three left on her rampage list: Budd, Elle Driver and Bill himself. But when she arrives at Bill's house, she's in for a surprise.","poster":"http:\/\/netflixroulette.net\/api\/posters\/60032563.jpg","mediatype":0,"runtime":"137 min"},
+  {"show_title":"Kill Bill: Vol. 2","unit":84,"show_id":60032563, "netflix-url":"https://www.netflix.com/search/", "release_year":"2004","movieIMDB": "8.0", "movieRottenTomatoes":"84", "rating":"3.8","category":"Action & Adventure","show_cast":"Uma Thurman, David Carradine, Michael Madsen, Daryl Hannah, Gordon Liu, Michael Parks, Perla Haney-Jardine, Helen Kim, Claire Smithies, Clark Middleton","director":"Quentin Tarantino","summary":"The Bride has three left on her rampage list: Budd, Elle Driver and Bill himself. But when she arrives at Bill's house, she's in for a surprise.","poster":"http:\/\/netflixroulette.net\/api\/posters\/60032563.jpg","mediatype":0,"runtime":"137 min"},
   {"show_title":"Kill Bill: Vol. 1","unit":87,"show_id":60031236,"netflix-url":"https://www.netflix.com/search/", "release_year":"2003","movieIMDB":"8.1", "movieRottenTomatoes":"85", "rating":"3.8","category":"Action & Adventure","show_cast":"Uma Thurman, Lucy Liu, Vivica A. Fox, Daryl Hannah, David Carradine, Michael Madsen, Julie Dreyfus, Chiaki Kuriyama, Sonny Chiba, Gordon Liu","director":"Quentin Tarantino","summary":"An assassin is shot by her ruthless employer, Bill, and other members of their assassination circle. But she lives -- and plots her vengeance.","poster":"http:\/\/netflixroulette.net\/api\/posters\/60031236.jpg","mediatype":0,"runtime":"111 min"},
   {"show_title":"Pulp Fiction","unit":914,"show_id":880640,"netflix-url":"https://www.netflix.com/search/", "release_year":"1994","movieIMDB":"8.9", "movieRottenTomatoes":"94", "rating":"4.1","category":"Oscar-winning Movies","show_cast":"John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis, Harvey Keitel, Tim Roth, Amanda Plummer, Ving Rhames, Eric Stoltz, Maria de Medeiros","director":"Quentin Tarantino","summary":"Weaving together three stories featuring a burger-loving hit man, his philosophical partner and a washed-up boxer, Quentin Tarantino influenced a generation of filmmakers with this crime caper's stylized, over-the-top violence and dark comic spirit.","poster":"http:\/\/netflixroulette.net\/api\/posters\/880640.jpg","mediatype":0,"runtime":"154 min"},
   {"show_title":"Jackie Brown","unit":943,"show_id":60010514,"netflix-url":"https://www.netflix.com/search/", "release_year":"1997","movieIMDB":"7.5", "movieRottenTomatoes":"87", "rating":"3.7","category":"Dramas","show_cast":"Pam Grier, Samuel L. Jackson, Robert Forster, Bridget Fonda, Michael Keaton, Robert De Niro, Michael Bowen, Chris Tucker, Lisa Gay Hamilton, Tommy 'Tiny' Lister","director":"Quentin Tarantino","summary":"Jackie Brown is an aging flight attendant who smuggles cash on the side. But when she's busted and pressured to help with an investigation, she plans to play the opposing forces against each other and walk away with the dough.","poster":"http:\/\/netflixroulette.net\/api\/posters\/60010514.jpg","mediatype":0,"runtime":"154 min"},
@@ -16,8 +17,12 @@ var data = {
 
 }
 
+
+
 function imdbSort(){
-    $("#movies").empty(),
+
+
+    $("#movies").empty();
     data.movies.sort(function(a, b){
     return b.movieIMDB-a.movieIMDB
   });
@@ -26,11 +31,16 @@ function imdbSort(){
   //calling template function and passing it the data
   var html = template(data.movies[i]);
   $("#movies").append(html);
+  $(".movie-imdb-rating:empty").parents(".module-movie").hide();
+
+
+
+
 };
 }
 
 function rottenTomatoesSort(){
-    $("#movies").empty(),
+    $("#movies").empty();
     data.movies.sort(function(a, b){
     return b.movieRottenTomatoes-a.movieRottenTomatoes
   });
@@ -38,6 +48,8 @@ function rottenTomatoesSort(){
   //calling template function and passing it the data
   var html = template(data.movies[i]);
   $("#movies").append(html);
+  $(".movie-rotten-tomatoes-rating:empty").parents(".module-movie").hide();
+
 };
 };
 
@@ -50,10 +62,16 @@ function netflixRatingSort() {
   for(i=0; i<data.movies.length; i++){
     var html = template(data.movies[i]);
     $("#movies").append(html);
+      $(".movie-netflix-rating:empty").parents(".module-movie").hide();
+
   }
 }
 
 function showDrama(){
+  $("#movies").empty();
+  data.movies.sort(function(a,b){
+    return b.rating-a.rating
+  });
   for (i = 0; i < data.movies.length; i++) {
 
   //calling template function and passing it the data
@@ -248,6 +266,8 @@ $("#search-bar").bind("keypress",function(e) {
     $("#search-button").click();
   }
 }); 
+
+
 
 
 });
