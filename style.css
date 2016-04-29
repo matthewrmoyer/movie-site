@@ -1,5 +1,7 @@
 @import url("reset.css");
 
+
+/* read this about this box-sizing thingy https://css-tricks.com/box-sizing/*/
 * { box-sizing: border-box; }
 body {
   padding: 1rem;
@@ -15,11 +17,8 @@ body {
   color: #999;
 }
 
-section {
-  background: white;
-  padding: 1rem;
-  overflow: hidden;
-}
+
+
 
 
 h2 {
@@ -28,18 +27,25 @@ h2 {
   border-bottom: 2px solid #333;
 }
 
-.module {
-  margin: 0 0 1rem 0;
+#module-movie-wrapper-wrapper{
+  width: 100%;
+}
+
+/* need to change this width if you decide on a different amount of movies for each row*/
+#module-movie-wrapper{
+  width: 116%;
 }
 
 
 
 
+/* height 0 padding % is a trick to scale height proportional to width*/
 .module-movie {
   float: left;
-  width: 25%;
-  margin: 2%;
-  height: 391px;
+  width: 17.5%;
+  margin: 2% ;
+  height: 0;
+  padding-bottom: 35%; 
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -75,9 +81,9 @@ background: #DAD1CA;
 */
 
 
-.module-movie:nth-of-type(3n) {
-  margin-right: 0;
-}
+
+
+/* Makes poster fade darker at bottom; makes movie-info easier to read*/
 .module-movie::after {
   content: "";
   position: absolute;
@@ -85,7 +91,7 @@ background: #DAD1CA;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(transparent 20%, black);
+background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));
 }
 
 
@@ -103,21 +109,26 @@ background: #DAD1CA;
   z-index: 2;
   max-height: 100%;
   overflow: scroll;
+  font-size: 2.2vmax;
+
+
 }
 .movie-title {
   margin: 0 0 0.5rem 0;
+
 }
+
 .movie-title::before {
   content: "Title";
   display: block;
-  font-size: 0.5rem;
+  font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999;
 }
 .movie-director::before {
   content: "Director";
   display: block;
-  font-size: 0.5rem;
+  font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999;
 }
@@ -128,7 +139,7 @@ background: #DAD1CA;
 .movie-imdb-rating::before {
   content: "IMDB Rating";
   display: block;
-  font-size: 0.5rem;
+  font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999;
 }
@@ -139,7 +150,7 @@ background: #DAD1CA;
 .movie-rotten-tomatoes-rating::before {
   content: "Rotten Tomatoes Rating";
 display: block;
-  font-size: 0.5rem;
+  font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999;
 }
@@ -150,7 +161,7 @@ display: block;
 .movie-netflix-rating::before {
   content: "Netflix Rating";
   display: block;
-  font-size: 0.5rem;
+  font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999;
 }
@@ -290,9 +301,13 @@ display: block;
   clear: both;
 }
 
+#movies-wrapper{
+
+}
 
 #movies{
   background-color: #9b0000;
+  overflow: hidden;
 }
 
 
@@ -376,6 +391,7 @@ display: none;}
 
 }
 
+/* applied to tabs so that a double click doesn't highlight the tabs*/
 .disable-user-select{
     -moz-user-select: none; /* Firefox */
       -ms-user-select: none; /* Internet Explorer */
@@ -385,9 +401,9 @@ display: none;}
 }
 
 .movie-rotten-tomatoes-rating:after {
+  font-size: 2.2vmax;
   content: "%";
   display: inline;
-  font-size: 14px;
   text-transform: uppercase;
   color: white;
 }

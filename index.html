@@ -67,9 +67,9 @@ content inside of {{}} will be replaced by data you pass the templage here
 
 -->
 <script id="media-template" type="text/x-handlebars-template">
-
-
-  <div class="module module-movie" style ="background-image: url({{poster}})" >
+<div id ="module-movie-wrapper-wrapper">
+<div id ="module-movie-wrapper">
+  <div class="module-movie" style ="background-image: url({{poster}})" >
     
     <div class = "description">
 
@@ -102,10 +102,13 @@ content inside of {{}} will be replaced by data you pass the templage here
       <p class="category, no-display">{{category}}</p>
     </div>
   </div>
+  </div>
+  </div>
 </script>
 
+<div id ="movies-wrapper">
 <section id="movies"></section>
-
+</div>
 
 
 
