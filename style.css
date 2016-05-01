@@ -65,6 +65,8 @@ background: #DAD1CA;
 
 }
 
+
+
 .module-movie:hover{
 }
 
@@ -209,11 +211,13 @@ display: block;
 }
 
 .play-button{
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: inline-block;
   cursor: pointer;
   /* need a position for z-index to work*/
-  z-index: 4;
+  opacity: .8;
 }
 
 
@@ -406,5 +410,21 @@ display: none;}
   display: inline;
   text-transform: uppercase;
   color: white;
+}
+
+
+/*for small screen sizes so that font doesn't get too small*/
+@media only screen and (max-width: 500px) {
+  .module-movie {width: 25%;}
+  #module-movie-wrapper{width: 115%;}
+  h3{font-size: 14px;}
+  p{font-size: 12px;}
+  .description-summary{font-size: 12px;}
+  .movie-info{height: 50%;}
+  .play-button{width: 30px;}
+  .play-button{height: 30px;}
+  .movie-rotten-tomatoes-rating:after{font-size: 12px;}
+
+
 }
 

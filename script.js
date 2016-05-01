@@ -48,7 +48,8 @@ function imdbSort(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
   $(".movie-imdb-rating:empty").parents(".module-movie").hide();
-
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 
 
 
@@ -65,7 +66,8 @@ function rottenTomatoesSort(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
   $(".movie-rotten-tomatoes-rating:empty").parents(".module-movie").hide();
-
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 };
 };
 
@@ -79,7 +81,8 @@ function netflixRatingSort() {
     var html = template(data.movies[i]);
     $("#movies").append(html);
       $(".movie-netflix-rating:empty").parents(".module-movie").hide();
-
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
   }
 }
 
@@ -95,6 +98,8 @@ function showDrama(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Dramas'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
 
 function showComedy(){
@@ -107,7 +112,10 @@ function showComedy(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Comedies'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
+
 function showAction(){
     $("#movies").empty();
 
@@ -118,7 +126,10 @@ function showAction(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Action'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
+
 function showAdventure(){
     $("#movies").empty();
 
@@ -129,7 +140,10 @@ function showAdventure(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Adventure'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
+
 function showCrime(){
     $("#movies").empty();
 
@@ -140,7 +154,10 @@ function showCrime(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Crime'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
+
 function showHorror(){
     $("#movies").empty();
 
@@ -151,7 +168,10 @@ function showHorror(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Horror'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
+
 function showSciFi(){
     $("#movies").empty();
 
@@ -162,6 +182,8 @@ function showSciFi(){
   $("#movies").append(html);
 };
 $(".module-movie:not(:contains('Sci-Fi'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 }
 
 
@@ -210,16 +232,14 @@ $(".module-movie").hover(function(){
 });
 */
 
+//hover doesn't do anything on small screens so that the click function will work correctly, tablets/phones = no hover
 $('body').on('mouseenter', ".module-movie", function() {
-
-
-
-
-
-    $(".description").removeClass("hidden");
-
-   
-
+  if ($(window).width()<=500){
+      ///nothing
+  }
+    else {
+      $(".description").removeClass("hidden");
+  }
 });
 
 
@@ -283,6 +303,13 @@ $("#search-bar").bind("keypress",function(e) {
     $("#search-button").click();
   }
 }); 
+
+//lets user click to see description, tablets/phones = no hover
+$(".module-movie").on("click", function(){
+  if($(window).width()<=500)
+    $(".description").toggleClass("hidden");
+});
+
 
 
 //remove these divs if empty
