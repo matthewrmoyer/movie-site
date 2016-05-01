@@ -236,6 +236,9 @@ $(".module-movie").hover(function(){
 $('body').on('mouseenter', ".module-movie", function() {
   if ($(window).width()<=500){
       ///nothing
+      //need this otherwise will hover the first time your refresh idk why
+          $(".description").addClass("hidden");
+
   }
     else {
       $(".description").removeClass("hidden");
@@ -246,10 +249,14 @@ $('body').on('mouseenter', ".module-movie", function() {
 
 $('body').on('mouseleave', ".module-movie", function() {
 
+    if($(window).width()<=500){
+      //nothing
 
+    }
+    else{
     $(".description").addClass("hidden");
    
-
+}
 });
 
 $("#search-button").on("click", function() {
@@ -305,7 +312,8 @@ $("#search-bar").bind("keypress",function(e) {
 }); 
 
 //lets user click to see description, tablets/phones = no hover
-$(".module-movie").on("click", function(){
+  $('body').on('click', ".module-movie", function() {
+
   if($(window).width()<=500)
     $(".description").toggleClass("hidden");
 });
