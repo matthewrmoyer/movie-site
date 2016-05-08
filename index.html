@@ -6,6 +6,8 @@
 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lobster2' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+
 
 
 	<script src ="jquery.js"></script>
@@ -18,6 +20,12 @@
 
 
 <body>
+
+
+
+
+
+
 <div class= "sort-wrapper disable-user-select">
   <ul class = "sort-tab">
   <ul class= "sort-rating">
@@ -117,7 +125,18 @@ content inside of {{}} will be replaced by data you pass the templage here
 </script>
 
 <div id ="movies-wrapper">
-<section id="movies"></section>
+<section id="movies">
+	<div class="dialog-wrapper">
+ <div class= "dialog-container-wrapper">
+  <div class= "dialog-container">
+     <p class= "dialog-message">By clicking agree, you agree to the terms and conditions of this website.</p>
+    <div class = "dialog-button-agree"><p>Agree</div>
+    <div class = "dialog-button-disagree"><p>Disagree</p></div>
+   </div
+  </div>
+</div>
+	
+</section>
 </div>
 
 

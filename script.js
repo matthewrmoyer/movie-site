@@ -117,15 +117,21 @@ $(".movie-rotten-tomatoes-rating:empty").remove();
 }
 
 function showAction(){
+  //empty all the modules from movies
     $("#movies").empty();
 
+//loop through all the movies
   for (i = 0; i < data.movies.length; i++) {
 
-  //calling template function and passing it the data
+  //call template function and pass it the data
   var html = template(data.movies[i]);
+  //add modules to movies
   $("#movies").append(html);
 };
+//remove modules that don't contain the genre in module
 $(".module-movie:not(:contains('Action'))").remove();
+
+//remove empty divs
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -274,7 +280,10 @@ console.log(searchInput);
 };
 /*  
 could use this instead. it makes a new methond called containsNC
+//extend $.expr[":"] <-- this is the object that stores jquery selectors; we are extending it to include the following selector
  $.extend($.expr[":"], {
+  //containsNC = new selector's name
+  //
   "containsNC": function(elem, i, match, array) {
     return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
   }
@@ -287,7 +296,10 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
         return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
     };
 });
+
 $(".module-movie:not(:contains('"+searchInput+"'))").remove();
+$(".movie-imdb-rating:empty").remove();
+$(".movie-rotten-tomatoes-rating:empty").remove();
 });
 
 
@@ -310,6 +322,12 @@ $("#search-bar").bind("keypress",function(e) {
     $("#search-button").click();
   }
 }); 
+
+
+$(".dialog-button-agree").on("click", function(){
+  $(".dialog-container").remove();
+});
+
 
 //lets user click to see description, tablets/phones = no hover
   $('body').on('click', ".module-movie", function() {

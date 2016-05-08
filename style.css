@@ -1,89 +1,41 @@
 @import url("reset.css");
+/* read this about this box-sizing thingy 
+https://css-tricks.com/box-sizing/*/
+* {
+  box-sizing: border-box; }
 
-
-/* read this about this box-sizing thingy https://css-tricks.com/box-sizing/*/
-* { box-sizing: border-box; }
 body {
   padding: 1rem;
-  background: #333;
-
-}
-
-.category:before {
-  content: "Genre";
-  display: block;
-  font-size: 0.5rem;
-  text-transform: uppercase;
-  color: #999;
-}
-
-
-
-
+  background: #333; }
 
 h2 {
   margin: 0 0 0.5rem 0;
   padding: 0 0 0.25rem 0;
-  border-bottom: 2px solid #333;
-}
+  border-bottom: 2px solid #333; }
 
-#module-movie-wrapper-wrapper{
-  width: 100%;
-}
+#module-movie-wrapper-wrapper {
+  width: 100%; }
 
 /* need to change this width if you decide on a different amount of movies for each row*/
-#module-movie-wrapper{
-  width: 116%;
-}
-
-
-
+#module-movie-wrapper {
+  width: 116%; }
 
 /* height 0 padding % is a trick to scale height proportional to width*/
 .module-movie {
   float: left;
   width: 17.5%;
-  margin: 2% ;
+  margin: 2%;
   height: 0;
-  padding-bottom: 35%; 
+  padding-bottom: 35%;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  box-shadow: 0 0 20px 0px black, inset 0 0 0 5px black;
-
-
-}
-
-
-.module-movie:hover .description{
-opacity: 1;
-/* 90% opaque white */
-background: #DAD1CA; 
-  box-shadow: 0 0 10px 0px black;
-
-
-
-}
-
-
-
-.module-movie:hover{
-}
-
-/*
-.module-movie-hovered {
-  float: left;
-  width: 50%;
-  margin-right: 2%;
-  height: 391px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-*/
-
-
-
+  box-shadow: 0 0 20px 0px black, inset 0 0 0 5px black; }
+  .module-movie:hover .description {
+    opacity: 1;
+    /* 90% opaque white */
+    background: #DAD1CA;
+    box-shadow: 0 0 10px 0px black; }
 
 /* Makes poster fade darker at bottom; makes movie-info easier to read*/
 .module-movie::after {
@@ -93,13 +45,7 @@ background: #DAD1CA;
   left: 0;
   width: 100%;
   height: 100%;
-background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));
-}
-
-
-
-
-
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); }
 
 .movie-info {
   position: absolute;
@@ -111,87 +57,63 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));
   z-index: 2;
   max-height: 100%;
   overflow: scroll;
-  font-size: 2.2vmax;
+  font-size: 2.2vmax; }
 
-
-}
 .movie-title {
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.5rem 0; }
 
-}
+.category:before, .movie-title::before, .movie-director::before, .movie-imdb-rating::before, .movie-rotten-tomatoes-rating::before, .movie-netflix-rating::before {
+  display: block;
+  font-size: 1.2vmax;
+  text-transform: uppercase;
+  color: #999; }
+
+.category:before {
+  content: "Genre"; }
 
 .movie-title::before {
-  content: "Title";
-  display: block;
-  font-size: 1.2vmax;
-  text-transform: uppercase;
-  color: #999;
-}
+  content: "Title"; }
+
 .movie-director::before {
-  content: "Director";
-  display: block;
-  font-size: 1.2vmax;
-  text-transform: uppercase;
-  color: #999;
-}
+  content: "Director"; }
+
 .movie-director {
-  margin: 0;
-}
+  margin: 0; }
 
 .movie-imdb-rating::before {
-  content: "IMDB Rating";
-  display: block;
-  font-size: 1.2vmax;
-  text-transform: uppercase;
-  color: #999;
-}
+  content: "IMDB Rating"; }
+
 .movie-imdb-rating {
-  margin: 0;
-}
+  margin: 0; }
 
 .movie-rotten-tomatoes-rating::before {
-  content: "Rotten Tomatoes Rating";
-display: block;
-  font-size: 1.2vmax;
-  text-transform: uppercase;
-  color: #999;
-}
+  content: "Rotten Tomatoes Rating"; }
+
 .movie-rotten-tomatoes-rating {
-  margin: 0;
-}
+  margin: 0; }
 
 .movie-netflix-rating::before {
-  content: "Netflix Rating";
-  display: block;
-  font-size: 1.2vmax;
-  text-transform: uppercase;
-  color: #999;
-}
+  content: "Netflix Rating"; }
+
 .movie-netflix-rating {
-  margin: 0;
-}
+  margin: 0; }
 
-
-.overlay{
+.overlay {
   position: absolute;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
   background: black;
-  opacity: 0;
-}
+  opacity: 0; }
 
 .hidden {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
-.unhidden{
-  visibility: visible;
-}
+.unhidden {
+  visibility: visible; }
 
-
-.description{
+.description {
   position: absolute;
   top: 2px;
   width: 100%;
@@ -201,240 +123,241 @@ display: block;
   color: black;
   text-align: center;
   font-family: "Lobster2", Georgia, Times, serif;
-  z-index: 3;
+  z-index: 3; }
 
-}
+.description:hover {
+  opacity: 1; }
 
-.description:hover{
-  opacity: 1;
-
-}
-
-.play-button{
+.play-button {
   position: absolute;
   bottom: 0;
   right: 0;
   display: inline-block;
   cursor: pointer;
   /* need a position for z-index to work*/
-  opacity: .8;
-}
+  opacity: .8; }
 
+.faded {
+  opacity: .5; }
 
-.faded{
-  opacity: .5;
-}
-
-
-
-.sort-tab{
+.sort-tab {
   width: 100%;
-  text-align: center;
-}
+  text-align: center; }
 
+.sort-rating {
+  display: block; }
 
-
-.sort-rating{
-  display: block;
-}
-.sort-rating li{
+.sort-rating li, .sort-genre li {
   display: inline-block;
   color: #9b0000;
+  height: 2em;
+  border-right: 5px;
+  border-style: solid;
+  border-color: gray;
+  font-size: 2vmax;
+  float: left;
+  /* make sure to clear the float*/
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Lobster2", Georgia, Times, serif; }
+  .sort-rating li:hover, .sort-genre li:hover {
+    box-shadow: 0 0 20px 0px white; }
+
+.sort-rating li {
   width: 20vw;
-  height: 2em;
-  border-right: 5px;
-  border-style: solid;
-  border-color: gray;
-  margin: 5px 5px 2px 5px ;
-  font-size: 2vmax;
-  float: left;
-  /* make sure to clear the float*/
-  overflow: hidden;
-  text-align: center;
-  cursor: pointer;
-  font-family: "Lobster2", Georgia, Times, serif;
+  margin: 5px 5px 2px 5px; }
 
-
-}
-.sort-rating li:hover{
-    box-shadow: 0 0 20px 0px white;
-
-}
-
-.sort-genre{
+.sort-genre {
   display: block;
-  clear: both;
-}
-.sort-genre li{
-  display: inline-block;
-  color: #9b0000;
+  clear: both; }
 
-
-  /*try this box-shadow: 0px 50px 50px 0px #FFF35C; "color: #CEA026" */
-
+.sort-genre li {
   width: 10vw;
-  height: 2em;
-  border-right: 5px;
-  border-style: solid;
-  border-color: gray;
-  margin: 10px 5px 2px 5px ;
-  font-size: 2vmax;
-  float: left;
-  /* make sure to clear the float*/
-  overflow: hidden;
-  text-align: center;
-  cursor: pointer;
-  font-family: "Lobster", Georgia, Times, serif;
+  margin: 10px 5px 2px 5px; }
 
-
-
-}
-
-.sort-genre li:hover{
-    box-shadow: 0 0 20px 0px white;
-
-}
-
-.sort-wrapper{
+.sort-wrapper {
   float: left;
   position: relative;
-  width: 100vw;
-}
+  width: 100vw; }
 
-#clear-div{
-  clear: both;
-}
+#clear-div {
+  clear: both; }
 
-#movies-wrapper{
-
-}
-
-#movies{
+#movies {
   background-color: #9b0000;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
-
-#search-li{
+#search-li {
   width: 20vw;
   border-top: gray;
   border-bottom: gray;
   border-left: gray;
   border-right: gray;
+  border-style: solid; }
 
-  border-style: solid;
+#search-wrapper {
+  height: 100%; }
 
+#search-form {
+  height: 100%; }
 
-}
-
-#search-wrapper
-{
-  height: 100%;
-  
-
-}
-
-#search-form{
-height: 100%;
-
-}
-
-#search-bar{
+#search-bar {
   display: inline;
   width: 80%;
   float: left;
-font-size: 2vw;
+  font-size: 2vw;
   background-color: #333;
-border-style: none;
-color: gray;
-height: 100%;
+  border-style: none;
+  color: gray;
+  height: 100%; }
 
-}
+#search-bar:focus {
+  outline: none; }
 
-#search-bar:focus{
-  outline: none;
-}
+#search-button {
+  display: inline;
+  width: 20%;
+  float: right;
+  height: 100px;
+  background-color: grey; }
 
-#search-button{
- display: inline;
- width: 20%;
- float: right;
- height: 100px;
- background-color: gray;
+.no-display {
+  display: none; }
 
-}
-
-.no-display{
-display: none;}
-
-
-.description-movie-title{
+.description-movie-title {
   display: block;
-  text-transform:uppercase;
+  text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 0;
-  vertical-align:top;
+  vertical-align: top;
   border-bottom: 2px solid black;
   font-family: "Oswald";
-    font-size: 2.5vmax;
+  font-size: 2.5vmax; }
 
-}
-.description-release-date{
+.description-release-date {
   border-bottom: 2px solid #2f2f2f;
-    font-size: 1.8vmax;
-      margin-bottom: 2px;
+  font-size: 1.8vmax;
+  margin-bottom: 2px; }
 
-
-
-}
-
-.description-summary{
-    font-size: 2vmax;
-
-
-}
+.description-summary {
+  font-size: 2vmax; }
 
 /* applied to tabs so that a double click doesn't highlight the tabs*/
-.disable-user-select{
-    -moz-user-select: none; /* Firefox */
-      -ms-user-select: none; /* Internet Explorer */
-   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
-  -webkit-user-select: none; /* Chrome, Safari, and Opera */
-  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
-}
+.disable-user-select, .dialog-button-agree, .dialog-button-disagree {
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer */
+  -khtml-user-select: none;
+  /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none;
+  /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none;
+  /* Disable Android and iOS callouts*/ }
 
 .movie-rotten-tomatoes-rating:after {
   font-size: 2.2vmax;
   content: "%";
   display: inline;
   text-transform: uppercase;
-  color: white;
-}
-
+  color: white; }
 
 /*for small screen sizes so that font doesn't get too small*/
 @media only screen and (max-width: 500px) {
-  .module-movie {width: 25%;}
-  #module-movie-wrapper{width: 115%;}
-  h3{font-size: 14px;}
-  p{font-size: 12px;}
-  .description-summary{font-size: 12px;}
-  .movie-info{height: 50%;}
-  .play-button{width: 30px;}
-  .play-button{height: 30px;}
-  .movie-rotten-tomatoes-rating:after{font-size: 12px;}
+  .module-movie {
+    width: 25%; }
 
-}
+  #module-movie-wrapper {
+    width: 115%; }
+
+  h3 {
+    font-size: 14px; }
+
+  p {
+    font-size: 12px; }
+
+  .description-summary {
+    font-size: 12px; }
+
+  .movie-info {
+    height: 50%; }
+
+  .play-button {
+    width: 30px; }
+
+  .play-button {
+    height: 30px; }
+
+  .movie-rotten-tomatoes-rating:after {
+    font-size: 12px; } }
+.dialog-button-agree, .dialog-button-disagree {
+  width: 26.66667%;
+  height: 50px;
+  background-color: blue;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: auto;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 2px;
+  margin-bottom: 5px;
+  font-size: 2vmax; }
+  .dialog-button-agree:active, .dialog-button-disagree:active {
+    box-shadow: inset 0px 0px 10px 2px; }
+  .dialog-button-agree p, .dialog-button-disagree p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.dialog-container-wrapper {
+  position: fixed;
+  z-index: 99; }
+
+.dialog-container {
+  display: inline-flex;
+  background-color: rgba(217, 217, 247, 0.65);
+  justify-content: space-around;
+  width: 80%;
+  height: 200px;
+  text-align: center;
+  align-items: flex-end;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  overflow: scroll; }
+  @media screen and (max-width: 200px) {
+    .dialog-container {
+      width: 100px; } }
+
+.dialog-button-agree {
+  background-color: rgba(44, 255, 44, 0.3); }
+
+.dialog-button-disagree {
+  background-color: rgba(255, 44, 44, 0.4); }
+
+.dialog-message {
+  align-self: flex-start;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  font-size: 2vmax; }
+
+.dialog-wrapper {
+  text-align: center;
+  padding: 20px; }
 
 /*for small screen sizes so that font doesn't get too small*/
 @media only screen and (min-width: 1300px) {
-  .module-movie {width: 12%;}
-  .module-movie {height: 0;}
-  .module-movie {padding-bottom: 24%;}
-  #module-movie-wrapper{width: 104%;}
+  .module-movie {
+    width: 12%; }
 
+  .module-movie {
+    height: 0; }
 
+  .module-movie {
+    padding-bottom: 24%; }
 
+  #module-movie-wrapper {
+    width: 104%; } }
 
-}
+/*# sourceMappingURL=style.css.map */
