@@ -56,7 +56,6 @@ h2 {
   .module-movie:hover .description {
     opacity: 1;
     /* 90% opaque white */
-    background: #DAD1CA;
     box-shadow: 0 0 10px 0px black;
     transform: scale(1.1); }
 
@@ -87,6 +86,9 @@ h2 {
   @media (max-width: 500px) {
     .movie-info {
       height: 50%; } }
+  @media (min-width: 1300px) {
+    .movie-info {
+      height: 75%; } }
 
 .movie-title {
   margin: 0 0 0.5rem 0; }
@@ -144,6 +146,7 @@ h2 {
 
 .description {
   position: absolute;
+  background: #DAD1CA;
   top: 2px;
   width: 100%;
   height: 100%;
@@ -157,18 +160,29 @@ h2 {
 .description:hover {
   opacity: 1; }
 
-.play-button {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: inline-block;
+.netflix-play-button, .add-button {
   cursor: pointer;
   /* need a position for z-index to work*/
-  opacity: .8; }
+  opacity: .8;
+  user-select: none; }
   @media (max-width: 500px) {
-    .play-button {
+    .netflix-play-button, .add-button {
       width: 30px;
       height: 30px; } }
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: flex-end;
+  flex-wrap: no-wrap; }
+
+.add-button {
+  align-self: center; }
+  @media (max-width: 500px) {
+    .add-button {
+      width: 20px;
+      height: 20px; } }
 
 .faded {
   opacity: .5; }
@@ -219,6 +233,10 @@ h2 {
 
 #movies {
   background-color: #9b0000;
+  overflow: hidden; }
+
+#saved {
+  background-color: #005D5D;
   overflow: hidden; }
 
 #search-li {

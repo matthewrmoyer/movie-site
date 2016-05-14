@@ -90,13 +90,24 @@ content inside of {{}} will be replaced by data you pass the templage here
 <div class = "description-summary">{{summary}}</div>
 
     <br>
-    <a href="{{netflix-url}}{{show_title}}">
-    <svg class = "play-button" width="100" height="100">
-  <circle cx="50%" cy="50%" r= "40%" stroke-width= "5px" stroke="white" fill="gray"></circle>
+
+ <div class= "button-container">
+   <a href="{{netflix-url}}{{show_title}}">
+    <svg class = "netflix-play-button" width="50" height="50">
+  <circle cx="50%" cy="50%" r= "40%" stroke-width= "3px" stroke="white" fill="gray"></circle>
   <line x1="20%" y1="25%" x2="90%" y2="50%" style="stroke:white" stroke-width="5%"></line>
    <line x1="20%" y1="75%" x2="90%" y2="50%" style="stroke:white" stroke-width="5%"></line>
   <line x1="20%" y1="25%" x2="20%" y2="75%" style="stroke:white" stroke-width="5%"></line>
 </svg></a>
+    
+    <svg class = "add-button" width="30" height="30">
+  <rect width="30" height = "30" stroke-width= "0px" stroke="blue" fill="gray"></rect>
+  <line x1="50%" y1="0%" x2="50%" y2="100%" style="stroke:blue" stroke-width="5%"></line>
+   <line x1="0%" y1="50%" x2="100%" y2="50%" style="stroke:blue" stroke-width="5%"></line>
+
+</svg>
+</div>
+
 </div>
     <div class="movie-info">
 
@@ -107,13 +118,26 @@ content inside of {{}} will be replaced by data you pass the templage here
       <p class="movie-imdb-rating">{{movieIMDB}}</p>
       <p class="movie-rotten-tomatoes-rating">{{movieRottenTomatoes}}</p>
       <p class="movie-netflix-rating">{{rating}} 
+   
+
+<div class= "button-container">
    <a href="{{netflix-url}}{{show_title}}">
-    <svg class = "play-button" width="50" height="50">
+    <svg class = "netflix-play-button" width="50" height="50">
   <circle cx="50%" cy="50%" r= "40%" stroke-width= "3px" stroke="white" fill="gray"></circle>
   <line x1="20%" y1="25%" x2="90%" y2="50%" style="stroke:white" stroke-width="5%"></line>
    <line x1="20%" y1="75%" x2="90%" y2="50%" style="stroke:white" stroke-width="5%"></line>
   <line x1="20%" y1="25%" x2="20%" y2="75%" style="stroke:white" stroke-width="5%"></line>
 </svg></a>
+    
+    <svg class = "add-button" width="30" height="30">
+  <rect width="30" height = "30" stroke-width= "0px" stroke="blue" fill="gray"></rect>
+  <line x1="50%" y1="0%" x2="50%" y2="100%" style="stroke:blue" stroke-width="5%"></line>
+   <line x1="0%" y1="50%" x2="100%" y2="50%" style="stroke:blue" stroke-width="5%"></line>
+
+</svg>
+</div>
+
+</div>
 
 
       </p>
@@ -125,7 +149,8 @@ content inside of {{}} will be replaced by data you pass the templage here
 </script>
 
 <div id ="movies-wrapper">
-<section id="movies">
+<section id="movies"></section>
+<section id ="saved"><h2>Saved for Later</h2></section>
 
 <!--
 <div class="dialog-wrapper">

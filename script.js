@@ -341,8 +341,9 @@ $(".dialog-button-agree").on("click", function(){
 //lets user click to see description, tablets/phones = no hover
   $('body').on('click', ".module-movie", function() {
 
-  if($(window).width()<=500)
+  if($(window).width()<=500){
     $(".description").toggleClass("hidden");
+  }
 });
 
 
@@ -351,6 +352,14 @@ $(".dialog-button-agree").on("click", function(){
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 
+$("body").on("click", ".add-button", function(){
+  console.log("click");
 
+
+  var movieClone = $(this).closest(".module-movie").clone();
+  $("#saved").append(movieClone);
+
+
+});
 
 });
