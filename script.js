@@ -50,7 +50,7 @@ function imdbSort(){
   $(".movie-imdb-rating:empty").parents(".module-movie").hide();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
-$(".")
+
 
 
 
