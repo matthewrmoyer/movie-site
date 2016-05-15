@@ -78,14 +78,12 @@ p{
   @media#{$small-screen}{
     width: 25%;
   }
-&:hover .description{
-  opacity: 1;
-/* 90% opaque white */
-  box-shadow: 0 0 10px 0px black;
+}
+
+.enlarge{
   transform: scale(1.1);
 }
 
-}
 
 
 /* Makes poster fade darker at bottom; makes movie-info easier to read*/
@@ -113,23 +111,20 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   width: 100%;
   padding: 0.5rem;
   color: white;
-  z-index: 2;
+  z-index: 10;
   max-height: 100%;
   overflow: scroll;
   font-size: 2.2vmax;
   @media #{$small-screen}{
       height: 50%;
-
   }
   @media #{$big-screen}{
     height: 75%;
   }
-
-
 }
+
 .movie-title {
   margin: 0 0 0.5rem 0;
-
 }
 //placeholder for title, director, etc
 %movie-info-before{
@@ -211,7 +206,6 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 .description{
   position: absolute;
   background: $paper-color; 
-
   top: 2px;
   width: 100%;
   height: 100%;
@@ -224,9 +218,11 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 
 }
 
-.description:hover{
+.show-description{
   opacity: 1;
-
+/* 90% opaque white */
+  box-shadow: 0 0 10px 0px black;
+  transform: scale(1.05);
 }
 
 %button-item{
@@ -513,7 +509,12 @@ width: 100%;
   padding: 20px;
 }
 
+.zero-z-index{
+  z-index: 0;
+}
 
-
+.fifty-z-index{
+  z-index: 50;
+}
 
 

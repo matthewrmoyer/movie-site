@@ -226,53 +226,34 @@ for (i = 0; i < data.movies.length; i++) {
   $("#movies").append(html);
 };
 
-//cannot use $(".module-movie").on("click", function(){   }); with dynamically created elements, but you can use this!!!!!!
-//works for anything with .module-movie class inside of body
- /*
-  $('body').on('click', ".module-movie", function() {
-    this.remove();
-});
 
+
+
+
+/* cannot use the following for for dynamically created elements:
+$(".module-movie").on("click,function(){});
+you need to use $('body').on('click', ".module-movie", function(){ });
 */
+  $('body').on('click', ".module-movie", function() {
+    $(this).toggleClass("enlarge");
+    $(this).children().toggleClass("show-description");
+    $(this).find(".movie-info").toggleClass("zero-z-index");
+
+  });
+
+
+
+
 
 $("#tab-netflix-rating-sort").on("click", netflixRatingSort);
 $("#tab-imdb-sort").on("click",imdbSort);
 $("#tab-rotten-tomatoes-sort").on("click",rottenTomatoesSort);
 $("#tab-popular-sort").on("click", popularSort);
-/* cannot use the following for for dynamically created elements:
-$(".module-movie").hover(function(){
-    }, function(){
-    $(this).removeClass("module-movie-hovered");
-        $(".description").addClass("hidden");
-});
-*/
-
-//hover doesn't do anything on small screens so that the click function will work correctly, tablets/phones = no hover
-$('body').on('mouseenter', ".module-movie", function() {
-  if ($(window).width()<=500){
-      ///nothing
-      //need this otherwise will hover the first time your refresh idk why
-          $(".description").addClass("hidden");
-
-  }
-    else {
-      $(".description").removeClass("hidden");
-  }
-});
 
 
 
-$('body').on('mouseleave', ".module-movie", function() {
 
-    if($(window).width()<=500){
-      //nothing
 
-    }
-    else{
-    $(".description").addClass("hidden");
-   
-}
-});
 
 $("#search-button").on("click", function() {
 var searchInput = $("#search-bar").val();
@@ -338,13 +319,7 @@ $(".dialog-button-agree").on("click", function(){
 });
 
 
-//lets user click to see description, tablets/phones = no hover
-  $('body').on('click', ".module-movie", function() {
 
-  if($(window).width()<=500){
-    $(".description").toggleClass("hidden");
-  }
-});
 
 
 

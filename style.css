@@ -53,11 +53,9 @@ h2 {
   @media (max-width: 500px) {
     .module-movie {
       width: 25%; } }
-  .module-movie:hover .description {
-    opacity: 1;
-    /* 90% opaque white */
-    box-shadow: 0 0 10px 0px black;
-    transform: scale(1.1); }
+
+.enlarge {
+  transform: scale(1.1); }
 
 /* Makes poster fade darker at bottom; makes movie-info easier to read*/
 .module-movie:after {
@@ -79,7 +77,7 @@ h2 {
   width: 100%;
   padding: 0.5rem;
   color: white;
-  z-index: 2;
+  z-index: 10;
   max-height: 100%;
   overflow: scroll;
   font-size: 2.2vmax; }
@@ -157,8 +155,11 @@ h2 {
   font-family: "Lobster2", Georgia, Times, serif;
   z-index: 3; }
 
-.description:hover {
-  opacity: 1; }
+.show-description {
+  opacity: 1;
+  /* 90% opaque white */
+  box-shadow: 0 0 10px 0px black;
+  transform: scale(1.05); }
 
 .netflix-play-button, .add-button {
   cursor: pointer;
@@ -371,5 +372,11 @@ h2 {
 .dialog-wrapper {
   text-align: center;
   padding: 20px; }
+
+.zero-z-index {
+  z-index: 0; }
+
+.fifty-z-index {
+  z-index: 50; }
 
 /*# sourceMappingURL=style.css.map */
