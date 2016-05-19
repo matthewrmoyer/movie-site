@@ -107,7 +107,10 @@ function showDrama(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Dramas'))").remove();
+
+
+//removes all .module-movie elements that are inside #movies and do not contain the string "Dramas"
+$("#movies .module-movie:not(:contains('Dramas'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -121,7 +124,7 @@ function showComedy(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Comedies'))").remove();
+$("#movies .module-movie:not(:contains('Comedies'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -138,8 +141,8 @@ function showAction(){
   //add modules to movies
   $("#movies").append(html);
 };
-//remove modules that don't contain the genre in module
-$(".module-movie:not(:contains('Action'))").remove();
+//remove modules that are inside movies section that don't contain the genre in module
+$("#movies .module-movie:not(:contains('Action'))").remove();
 
 //remove empty divs
 $(".movie-imdb-rating:empty").remove();
@@ -155,7 +158,7 @@ function showAdventure(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Adventure'))").remove();
+$("#movies .module-movie:not(:contains('Adventure'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -169,7 +172,7 @@ function showCrime(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Crime'))").remove();
+$("#movies .module-movie:not(:contains('Crime'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -183,7 +186,7 @@ function showHorror(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Horror'))").remove();
+$("$movies .module-movie:not(:contains('Horror'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -197,7 +200,7 @@ function showSciFi(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$(".module-movie:not(:contains('Sci-Fi'))").remove();
+$("#movies .module-movie:not(:contains('Sci-Fi'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
@@ -328,9 +331,10 @@ $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 
 $("body").on("click", ".add-button", function(){
-  console.log("click");
 
 
+
+//clones module movie and puts the clone in the saved for later section
   var movieClone = $(this).closest(".module-movie").clone();
   $("#saved").append(movieClone);
 
