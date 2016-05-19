@@ -185,6 +185,10 @@ h2 {
       width: 20px;
       height: 20px; } }
 
+#saved .add-button {
+  z-index: -1;
+  opacity: 0; }
+
 .faded {
   opacity: .5; }
 
