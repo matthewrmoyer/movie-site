@@ -186,7 +186,7 @@ function showHorror(){
   var html = template(data.movies[i]);
   $("#movies").append(html);
 };
-$("$movies .module-movie:not(:contains('Horror'))").remove();
+$("#movies .module-movie:not(:contains('Horror'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 }
