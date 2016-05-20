@@ -1,6 +1,12 @@
 $(document).ready(function(){
 
 
+//if any movies saved from other sessions, paste them into #saved
+//savedMovies is the localstorage key for the innerhtml of #saved from the last session
+//change from sessionStorage to localStorage when done programming
+var sm = sessionStorage.getItem("savedMovies");
+console.log(sm);
+$("#saved").append(sm);
 
 
 var data = {
@@ -333,12 +339,27 @@ $(".movie-rotten-tomatoes-rating:empty").remove();
 $("body").on("click", ".add-button", function(){
 
 
-
 //clones module movie and puts the clone in the saved for later section
   var movieClone = $(this).closest(".module-movie").clone();
   $("#saved").append(movieClone);
 
+  var savedMoviesStorage = document.getElementById("saved").innerHTML;
+
+
+//get local storage to save innerHTML of #saved so then can append to #saved section when page loads
+sessionStorage.setItem("savedMovies", savedMoviesStorage);
+//setting localStorage to "savedMovies"
+var sm = sessionStorage.getItem("savedMovies");
+
 
 });
+
+
+ /*
+localStorage.setItem('savedMovies', "#saved");
+var sm = localStorage.getItem('savedMovies');
+console.log(sm);
+*/
+
 
 });
