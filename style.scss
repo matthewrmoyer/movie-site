@@ -15,11 +15,20 @@ $accent-color: #005D5D;
 $paper-color: #DAD1CA;
 $light-grey: #999;
 
-
+div{
+  user-select: none;
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */ 
+  
+}
 
 body {
   padding: 1rem;
   background: $secondary-color;
+  font-family: "Lobster2", Georgia, Times, serif;
+
 
 }
 
@@ -78,16 +87,15 @@ p{
   @media#{$small-screen}{
     width: 25%;
   }
-}
+
 
 .enlarge{
   transform: scale(1.1);
 }
 
+&:after{
+  /* Makes poster fade darker at bottom; makes movie-info easier to read*/
 
-
-/* Makes poster fade darker at bottom; makes movie-info easier to read*/
-.module-movie:after {
   content: "";
   position: absolute;
   top: 0;
@@ -97,9 +105,12 @@ p{
 background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 @media #{$big-screen}{
   background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .5));
+}
+}
 
 }
-}
+
+
 
 
 
@@ -119,14 +130,12 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
       height: 50%;
   }
   @media #{$big-screen}{
-    height: 75%;
+    height: 85%;
+    font-size: 1.5vw;
   }
 }
 
-.movie-title {
-  margin: 0 0 0.5rem 0;
-}
-//placeholder for title, director, etc
+//placeholder for title, director, category etc
 %movie-info-before{
   display: block;
   font-size: 1.2vmax;
@@ -134,53 +143,71 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   color: $light-grey;
 }
 
+.movie-title {
+  margin: 0 0 0.5rem 0;
+  &:before{
+     @extend %movie-info-before;
+  content: "Title";
+
+  }
+}
+
+
 .category:before {
   @extend %movie-info-before;
   content: "Genre";
   
 }
 
-.movie-title::before {
-  @extend %movie-info-before;
-  content: "Title";
- 
-}
-.movie-director::before {
-  @extend %movie-info-before;
-  content: "Director";
-  
-}
-
-
 
 .movie-director {
   margin: 0;
+  &:before{
+     @extend %movie-info-before;
+     content: "Director";
+  }
 }
 
-.movie-imdb-rating::before {
-  @extend %movie-info-before;
-  content: "IMDB Rating";
-}
+
 .movie-imdb-rating {
   margin: 0;
+  &:before{
+     @extend %movie-info-before;
+     content: "IMDB Rating";
+  }
 }
 
-.movie-rotten-tomatoes-rating::before {
-  @extend %movie-info-before;
-  content: "Rotten Tomatoes Rating";
-}
+
 .movie-rotten-tomatoes-rating {
   margin: 0;
+  &:before{
+    @extend %movie-info-before;
+    content: "Rotten Tomatoes Rating";
+  }
+  &:after{
+     font-size: 2.2vmax;
+  content: "%";
+  display: inline;
+  text-transform: uppercase;
+  color: white;
+  @media #{$small-screen}{
+      font-size: 12px;
+  }
+  @media #{$big-screen}{
+    font-size: 1.5vmax;
+  }
+  }
 }
 
 
 
-.movie-netflix-rating::before {
-  @extend %movie-info-before;
-  content: "Netflix Rating";
-  }
+
 .movie-netflix-rating {
   margin: 0;
+  &:before{
+    @extend %movie-info-before;
+    content: "Netflix Rating";
+  }
 }
 
 
@@ -242,6 +269,7 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   width: 100%;
   align-items: flex-end;
   flex-wrap: no-wrap;
+
 }
 
 .netflix-play-button{
@@ -304,10 +332,27 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 }
 .sort-rating li{
   @extend %sort-list;
-  width: 20vw;
+  width: 18vw;
   margin: 5px 5px 2px 5px ;
+  text-align: left;
 
 }
+
+#tab-saved {
+    @extend %sort-list;
+
+    width: 8vw;
+  }
+  a{
+    width: 100%;
+  color: $base-color;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3vmax;
+
+}
+
+
 .sort-genre{
   display: block;
   clear: both;
@@ -324,6 +369,8 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   width: 100vw;
 }
 
+
+
 #clear-div{
   clear: both;
 }
@@ -335,8 +382,11 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 }
 
 #saved{
-  background-color: $accent-color;
+  margin: 20px;
+  background-color: $secondary-color;
+  color: $base-color;
   overflow: hidden;
+  font-size: 3vmax;
   //so you cant add within the saved section
     .add-button{
     z-index: -1;
@@ -350,6 +400,11 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   &:before{
     display: block;
     content: "Saved for Later";
+    text-align: center;
+  }
+
+  &:empty{
+    color: $secondary-color;
   }
 }
 
@@ -410,6 +465,9 @@ display: none;}
   font-family: "Oswald";
     font-size: 2.5vmax;
 
+
+
+
 }
 .description-release-date{
   border-bottom: 2px solid #2f2f2f;
@@ -423,6 +481,9 @@ display: none;}
       font-size: 12px;
 
     }
+    @media #{$big-screen}{
+      font-size: 1.5vmax;
+    }
   }
 
 /* applied to tabs so that a double click doesn't highlight the tabs*/
@@ -434,17 +495,6 @@ display: none;}
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
-.movie-rotten-tomatoes-rating:after {
-  font-size: 2.2vmax;
-  content: "%";
-  display: inline;
-  text-transform: uppercase;
-  color: white;
-  @media #{$small-screen}{
-      font-size: 12px;
-
-  }
-}
 
 
 

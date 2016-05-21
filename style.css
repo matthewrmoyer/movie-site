@@ -4,9 +4,21 @@ https://css-tricks.com/box-sizing/*/
 * {
   box-sizing: border-box; }
 
+div {
+  user-select: none;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */ }
+
 body {
   padding: 1rem;
-  background: #333; }
+  background: #333;
+  font-family: "Lobster2", Georgia, Times, serif; }
 
 h2 {
   margin: 0 0 0.5rem 0;
@@ -53,22 +65,20 @@ h2 {
   @media (max-width: 500px) {
     .module-movie {
       width: 25%; } }
-
-.enlarge {
-  transform: scale(1.1); }
-
-/* Makes poster fade darker at bottom; makes movie-info easier to read*/
-.module-movie:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)); }
-  @media (min-width: 1300px) {
-    .module-movie:after {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)); } }
+  .module-movie .enlarge {
+    transform: scale(1.1); }
+  .module-movie:after {
+    /* Makes poster fade darker at bottom; makes movie-info easier to read*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)); }
+    @media (min-width: 1300px) {
+      .module-movie:after {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)); } }
 
 .movie-info {
   position: absolute;
@@ -86,46 +96,54 @@ h2 {
       height: 50%; } }
   @media (min-width: 1300px) {
     .movie-info {
-      height: 75%; } }
+      height: 85%;
+      font-size: 1.5vw; } }
 
-.movie-title {
-  margin: 0 0 0.5rem 0; }
-
-.category:before, .movie-title::before, .movie-director::before, .movie-imdb-rating::before, .movie-rotten-tomatoes-rating::before, .movie-netflix-rating::before {
+.movie-title:before, .category:before, .movie-director:before, .movie-imdb-rating:before, .movie-rotten-tomatoes-rating:before, .movie-netflix-rating:before {
   display: block;
   font-size: 1.2vmax;
   text-transform: uppercase;
   color: #999; }
 
+.movie-title {
+  margin: 0 0 0.5rem 0; }
+  .movie-title:before {
+    content: "Title"; }
+
 .category:before {
   content: "Genre"; }
 
-.movie-title::before {
-  content: "Title"; }
-
-.movie-director::before {
-  content: "Director"; }
-
 .movie-director {
   margin: 0; }
-
-.movie-imdb-rating::before {
-  content: "IMDB Rating"; }
+  .movie-director:before {
+    content: "Director"; }
 
 .movie-imdb-rating {
   margin: 0; }
-
-.movie-rotten-tomatoes-rating::before {
-  content: "Rotten Tomatoes Rating"; }
+  .movie-imdb-rating:before {
+    content: "IMDB Rating"; }
 
 .movie-rotten-tomatoes-rating {
   margin: 0; }
-
-.movie-netflix-rating::before {
-  content: "Netflix Rating"; }
+  .movie-rotten-tomatoes-rating:before {
+    content: "Rotten Tomatoes Rating"; }
+  .movie-rotten-tomatoes-rating:after {
+    font-size: 2.2vmax;
+    content: "%";
+    display: inline;
+    text-transform: uppercase;
+    color: white; }
+    @media (max-width: 500px) {
+      .movie-rotten-tomatoes-rating:after {
+        font-size: 12px; } }
+    @media (min-width: 1300px) {
+      .movie-rotten-tomatoes-rating:after {
+        font-size: 1.5vmax; } }
 
 .movie-netflix-rating {
   margin: 0; }
+  .movie-netflix-rating:before {
+    content: "Netflix Rating"; }
 
 .overlay {
   position: absolute;
@@ -203,7 +221,7 @@ h2 {
 .sort-rating {
   display: block; }
 
-.sort-rating li, .sort-genre li {
+.sort-rating li, #tab-saved, .sort-genre li {
   display: inline-block;
   color: #9b0000;
   height: 2em;
@@ -217,12 +235,23 @@ h2 {
   text-align: center;
   cursor: pointer;
   font-family: "Lobster2", Georgia, Times, serif; }
-  .sort-rating li:hover, .sort-genre li:hover {
+  .sort-rating li:hover, #tab-saved:hover, .sort-genre li:hover {
     box-shadow: 0 0 20px 0px white; }
 
 .sort-rating li {
-  width: 20vw;
-  margin: 5px 5px 2px 5px; }
+  width: 18vw;
+  margin: 5px 5px 2px 5px;
+  text-align: left; }
+
+#tab-saved {
+  width: 8vw; }
+
+a {
+  width: 100%;
+  color: #9b0000;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3vmax; }
 
 .sort-genre {
   display: block;
@@ -245,8 +274,11 @@ h2 {
   overflow: hidden; }
 
 #saved {
-  background-color: #005D5D;
-  overflow: hidden; }
+  margin: 20px;
+  background-color: #333;
+  color: #9b0000;
+  overflow: hidden;
+  font-size: 3vmax; }
   #saved .add-button {
     z-index: -1;
     opacity: 0; }
@@ -254,7 +286,10 @@ h2 {
     display: inline; }
   #saved:before {
     display: block;
-    content: "Saved for Later"; }
+    content: "Saved for Later";
+    text-align: center; }
+  #saved:empty {
+    color: #333; }
 
 #search-li {
   width: 20vw;
@@ -314,6 +349,9 @@ h2 {
   @media (max-width: 500px) {
     .description-summary {
       font-size: 12px; } }
+  @media (min-width: 1300px) {
+    .description-summary {
+      font-size: 1.5vmax; } }
 
 /* applied to tabs so that a double click doesn't highlight the tabs*/
 .disable-user-select, .dialog-button-agree, .dialog-button-disagree {
@@ -327,16 +365,6 @@ h2 {
   /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none;
   /* Disable Android and iOS callouts*/ }
-
-.movie-rotten-tomatoes-rating:after {
-  font-size: 2.2vmax;
-  content: "%";
-  display: inline;
-  text-transform: uppercase;
-  color: white; }
-  @media (max-width: 500px) {
-    .movie-rotten-tomatoes-rating:after {
-      font-size: 12px; } }
 
 .dialog-button-agree, .dialog-button-disagree {
   width: 26.66667%;
