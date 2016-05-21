@@ -336,6 +336,8 @@ $(".dialog-button-agree").on("click", function(){
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
 
+
+//add movie to saved list
 $("body").on("click", ".add-button", function(){
 
 
@@ -351,8 +353,37 @@ sessionStorage.setItem("savedMovies", savedMoviesStorage);
 //setting localStorage to "savedMovies"
 var sm = sessionStorage.getItem("savedMovies");
 
+//without this the click on the add-button would also click the module-movie
+e.stopPropagation();
 
 });
+
+
+$("body").on("click", ".netflix-play-button", function(){
+//without this the click on the netflix-play-button would also click the module-movie
+e.stopPropagation();
+
+});
+
+
+//remove movie from saved list
+$("body").on("click", ".remove-button", function(){
+
+
+   $(this).closest(".module-movie").remove();
+
+    var savedMoviesStorage = document.getElementById("saved").innerHTML;
+
+
+//get local storage to save innerHTML of #saved so then can append to #saved section when page loads
+sessionStorage.setItem("savedMovies", savedMoviesStorage);
+//setting localStorage to "savedMovies"
+var sm = sessionStorage.getItem("savedMovies");
+
+ 
+
+});
+
 
 
  /*

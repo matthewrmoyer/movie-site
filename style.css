@@ -161,13 +161,13 @@ h2 {
   box-shadow: 0 0 10px 0px black;
   transform: scale(1.05); }
 
-.netflix-play-button, .add-button {
+.netflix-play-button, .add-button, .remove-button {
   cursor: pointer;
   /* need a position for z-index to work*/
   opacity: .8;
   user-select: none; }
   @media (max-width: 500px) {
-    .netflix-play-button, .add-button {
+    .netflix-play-button, .add-button, .remove-button {
       width: 30px;
       height: 30px; } }
 
@@ -182,6 +182,14 @@ h2 {
   align-self: center; }
   @media (max-width: 500px) {
     .add-button {
+      width: 20px;
+      height: 20px; } }
+
+.remove-button {
+  align-self: center;
+  display: none; }
+  @media (max-width: 500px) {
+    .remove-button {
       width: 20px;
       height: 20px; } }
 
@@ -242,6 +250,8 @@ h2 {
   #saved .add-button {
     z-index: -1;
     opacity: 0; }
+  #saved .remove-button {
+    display: inline; }
   #saved:before {
     display: block;
     content: "Saved for Later"; }
