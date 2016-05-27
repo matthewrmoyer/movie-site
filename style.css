@@ -423,4 +423,17 @@ a {
 .fifty-z-index {
   z-index: 50; }
 
+.small-screen-play-link {
+  visibility: hidden; }
+
+@media (max-width: 500px) {
+  .visible-small-screen {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%; } }
+
 /*# sourceMappingURL=style.css.map */

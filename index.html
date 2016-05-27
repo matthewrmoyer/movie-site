@@ -24,9 +24,8 @@
 
 
 
-<div class = "top-tab-wrapper">
 
-<div class= "sort-wrapper disable-user-select">
+<div class= "sort-wrapper">
   <ul class = "sort-tab">
   <ul class= "sort-rating">
     <li id = "tab-imdb-sort">Sort by IMDB Rating</li>
@@ -66,7 +65,6 @@
 
 </div>
 </div>
-</div>
 <div id="clear-div"></div>
 
 <!-- Handlebars syntax
@@ -81,6 +79,8 @@ content inside of {{}} will be replaced by data you pass the templage here
 <div id ="module-movie-wrapper-wrapper">
 <div id ="module-movie-wrapper">
   <div class="module-movie" style ="background-image: url({{poster}})" >
+    <a class = "small-screen-play-link" href="https://www.netflix.com/search/{{show_title}}"></a>
+
     
     <div class = "description">
 
