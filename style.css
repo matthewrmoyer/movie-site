@@ -4,6 +4,9 @@ https://css-tricks.com/box-sizing/*/
 * {
   box-sizing: border-box; }
 
+::-webkit-scrollbar {
+  display: none; }
+
 div {
   user-select: none;
   -webkit-user-select: none;

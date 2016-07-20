@@ -15,6 +15,14 @@ $accent-color: #005D5D;
 $paper-color: #DAD1CA;
 $light-grey: #999;
 
+//TODO add autoprefixer extension so that this site works in all browsers
+
+//vendor prefix to get rid of scroll bar on .movie-info
+//TODO add for all browsers
+::-webkit-scrollbar { 
+    display: none; 
+}
+
 div{
   user-select: none;
   -webkit-user-select: none;  /* Chrome all / Safari all */

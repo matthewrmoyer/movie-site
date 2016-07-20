@@ -396,15 +396,15 @@ var pressTimer=0;
 $(".module-movie").on("mousedown", function() {
 pressTimer=setTimeout(function() {
     $(".small-screen-play-link").addClass("visible-small-screen")
+      //draw border down left up right separately to make it look like its being drawn around before link is fired
+
 
 }, 500);
-  //do border down left up right separately to make it look like its being drawn around
 });
 
 
 $(".module-movie").on("mouseup", function(){
 clearTimeout(pressTimer);
-    $(this).css("border", "solid red 0px");
 
     $(".small-screen-play-link").removeClass("visible-small-screen");
 
