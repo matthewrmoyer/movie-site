@@ -43,6 +43,15 @@ var data = {
 }
 
 
+function noMatches(){
+  var moduleMovieCount = document.getElementById("movies").getElementsByClassName("module-movie");
+console.log(moduleMovieCount.length);
+  if(moduleMovieCount.length<=0){
+  $("#movies").addClass("no-matches");
+} else{
+  $("#movies").removeClass("no-matches");
+}
+}
 
 function imdbSort(){
 
@@ -59,6 +68,7 @@ function imdbSort(){
   $(".movie-imdb-rating:empty").parents(".module-movie").hide();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
 
 
 
@@ -78,6 +88,8 @@ function rottenTomatoesSort(){
   $(".movie-rotten-tomatoes-rating:empty").parents(".module-movie").hide();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 };
 };
 
@@ -93,6 +105,8 @@ function netflixRatingSort() {
       $(".movie-netflix-rating:empty").parents(".module-movie").hide();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
   };
 };
 
@@ -106,6 +120,8 @@ function popularSort(){
   $("#movies").append(html);
   $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 };
 };
 
@@ -119,6 +135,7 @@ function showDrama(){
   //calling template function and passing it the data
   var html = template(data.movies[i]);
   $("#movies").append(html);
+
 };
 
 
@@ -126,6 +143,8 @@ function showDrama(){
 $("#movies .module-movie:not(:contains('Dramas'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 function showComedy(){
@@ -140,6 +159,8 @@ function showComedy(){
 $("#movies .module-movie:not(:contains('Comedies'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 function showAction(){
@@ -160,6 +181,8 @@ $("#movies .module-movie:not(:contains('Action'))").remove();
 //remove empty divs
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 function showAdventure(){
@@ -174,6 +197,8 @@ function showAdventure(){
 $("#movies .module-movie:not(:contains('Adventure'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 function showCrime(){
@@ -188,6 +213,8 @@ function showCrime(){
 $("#movies .module-movie:not(:contains('Crime'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 function showHorror(){
@@ -202,6 +229,12 @@ function showHorror(){
 $("#movies .module-movie:not(:contains('Horror'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
+
+
+
+
 }
 
 function showSciFi(){
@@ -216,6 +249,8 @@ function showSciFi(){
 $("#movies .module-movie:not(:contains('Sci-Fi'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 }
 
 
@@ -303,9 +338,11 @@ $.expr[":"].contains = $.expr.createPseudo(function(arg) {
     };
 });
 
-$(".module-movie:not(:contains('"+searchInput+"'))").remove();
+$("#movies .module-movie:not(:contains('"+searchInput+"'))").remove();
 $(".movie-imdb-rating:empty").remove();
 $(".movie-rotten-tomatoes-rating:empty").remove();
+noMatches();
+
 });
 
 
@@ -424,5 +461,7 @@ var sm = localStorage.getItem('savedMovies');
 console.log(sm);
 */
 
+var arr = document.getElementsByClassName("module-movie")
+console.log(arr.length);
 
 });

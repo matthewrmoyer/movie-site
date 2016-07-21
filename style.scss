@@ -15,10 +15,11 @@ $accent-color: #005D5D;
 $paper-color: #DAD1CA;
 $light-grey: #999;
 
-//TODO add autoprefixer extension so that this site works in all browsers
+/*TODO add autoprefixer extension so that this site works in all browsers*/
 
-//vendor prefix to get rid of scroll bar on .movie-info
-//TODO add for all browsers
+
+/*vendor prefix to get rid of scroll bar on .movie-info*/
+/*TODO add for all browsers*/
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -146,7 +147,7 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   }
 }
 
-//placeholder for title, director, category etc
+/*placeholder for title, director, category etc*/
 %movie-info-before{
   display: block;
   font-size: 1.2vmax;
@@ -267,7 +268,10 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   cursor: pointer;
   /* need a position for z-index to work*/
   opacity: .8;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   @media #{$small-screen}{
      width: 30px;
      height: 30px;
@@ -275,11 +279,15 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 }
 
 .button-container{
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 100%;
-  align-items: flex-end;
-  flex-wrap: no-wrap;
+  -ms-flex-align: end;
+      align-items: flex-end;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
 
 }
 
@@ -289,7 +297,8 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 
 .add-button{
   @extend %button-item;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   @media #{$small-screen}{
     width: 20px;
     height: 20px;
@@ -299,7 +308,8 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 
 .remove-button{
   @extend %button-item;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   display: none;
   @media #{$small-screen}{
     width: 20px;
@@ -387,6 +397,7 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
 }
 
 
+
 #movies{
   background-color: $base-color;
   overflow: hidden;
@@ -398,7 +409,7 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
   color: $base-color;
   overflow: hidden;
   font-size: 3vmax;
-  //so you cant add within the saved section
+  /*so you cant add within the saved section*/
     .add-button{
     z-index: -1;
     opacity: 0;
@@ -518,7 +529,7 @@ $dialog-button-disagree-color:rgba(255, 44, 44, 0.4);
 $color1:rgba(255, 255, 255, 1);
 $color2: rgba(0, 0, 200, 0.3);
 
-//using sass mix function so that can be blue with low opacity with white background behind it so you can always see it! figured out on your own !!!
+/*using sass mix function so that can be blue with low opacity with white background behind it so you can always see it! figured out on your own !!!*/
 $dialog-container-color: mix($color1, $color2);
 
 
@@ -552,15 +563,19 @@ $dialog-container-color: mix($color1, $color2);
 
 }
 .dialog-container{
+  display: -ms-inline-flexbox;
   display: inline-flex;
   background-color: $dialog-container-color;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: $dialog-container-width;
   height: 200px;
   text-align: center;
-  align-items:flex-end;
+  -ms-flex-align:end;
+      align-items:flex-end;
   border-radius: 20px;
-  flex-wrap:wrap;
+  -ms-flex-wrap:wrap;
+      flex-wrap:wrap;
   overflow: scroll;
  
 }
@@ -579,7 +594,8 @@ $dialog-container-color: mix($color1, $color2);
 }
 
 .dialog-message{
-  align-self:flex-start;
+  -ms-flex-item-align:start;
+      align-self:flex-start;
   padding: 20px;
   display: block;
 width: 100%;  
@@ -590,7 +606,7 @@ width: 100%;
 
 
 
-//use this with inline-flex container to center the container
+/*use this with inline-flex container to center the container*/
 .dialog-wrapper{
   text-align: center;
   padding: 20px;
@@ -626,5 +642,18 @@ width: 100%;
   }
 }
 
+.no-matches{
+  text-align: center;
+  color: white;
+  height: 100px;
+  font-size: 3vmax;
+  @media #{$small-screen}{
+    font-size: 14px;
 
+  }
+  
+  &:before{
+    content: "No Matching Movies";
+  }
+}
 
