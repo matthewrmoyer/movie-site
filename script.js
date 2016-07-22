@@ -262,6 +262,11 @@ $("#tab-crime").on("click", showCrime);
 $("#tab-horror").on("click", showHorror);
 $("#tab-sci-fi").on("click", showSciFi);
 
+//makes whole #tab-saved div clickable for #saved link, not just the text
+$("#tab-saved").on("click", function(){
+ window.location = $(this).find("a").attr("href"); 
+});
+
 
 
 //grabbing guts of #media-template (getter)
