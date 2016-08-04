@@ -146,6 +146,13 @@ background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, .2));
     font-size: 1.5vw;
   }
 }
+//hides scrollbar and overflow in firefox
+@-moz-document url-prefix() { 
+  .movie-info {
+     overflow: hidden;
+  }
+}
+
 
 /*placeholder for title, director, category etc*/
 %movie-info-before{

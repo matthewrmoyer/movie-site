@@ -105,6 +105,9 @@ h2 {
       height: 85%;
       font-size: 1.5vw; } }
 
+@-moz-document url-prefix() {
+  .movie-info {
+    overflow: hidden; } }
 /*placeholder for title, director, category etc*/
 .movie-title:before, .category:before, .movie-director:before, .movie-imdb-rating:before, .movie-rotten-tomatoes-rating:before, .movie-netflix-rating:before {
   display: block;

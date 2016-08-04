@@ -53,13 +53,17 @@ console.log(moduleMovieCount.length);
 }
 }
 
+
 function imdbSort(){
 
 
     $("#movies").empty();
-    data.movies.sort(function(a, b){
-    return b.movieIMDB-a.movieIMDB
-  });
+    
+data.movies.sort(function(a, b){
+    var a1= a.movieIMDB, b1= b.movieIMDB;
+    if(a1== b1) return 0;
+    return a1< b1? 1: -1;
+});
   
   for (i = 0; i < data.movies.length; i++) {
   //calling template function and passing it the data
@@ -79,8 +83,10 @@ noMatches();
 function rottenTomatoesSort(){
     $("#movies").empty();
     data.movies.sort(function(a, b){
-    return b.movieRottenTomatoes-a.movieRottenTomatoes
-  });
+    var a1= a.movieRottenTomatoes, b1= b.movieRottenTomatoes;
+    if(a1== b1) return 0;
+    return a1< b1? 1: -1;
+});
    for (i = 0; i < data.movies.length; i++) {
   //calling template function and passing it the data
   var html = template(data.movies[i]);
@@ -96,9 +102,11 @@ noMatches();
 
 function netflixRatingSort() {
   $("#movies").empty();
-  data.movies.sort(function(a,b){
-    return b.rating-a.rating
-  });
+  data.movies.sort(function(a, b){
+    var a1= a.rating, b1= b.rating;
+    if(a1== b1) return 0;
+    return a1< b1? 1: -1;
+});
   for(i=0; i<data.movies.length; i++){
     var html = template(data.movies[i]);
     $("#movies").append(html);
